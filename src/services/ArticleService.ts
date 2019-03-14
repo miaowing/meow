@@ -16,27 +16,27 @@ export class ArticleService implements IArticleService {
   ) {
   }
 
-  getArticle(articleId: string): Promise<Article> | Article {
+  async getArticle(articleId: string): Promise<Article> {
     const service = this.getService();
     if (!service) {
       return null;
     }
     try {
-      return service.getArticle(articleId);
+      return await service.getArticle(articleId);
     } catch (e) {
       this.logger.error(`Get article ${ articleId } error.`, e);
       return null;
     }
   }
 
-  getArticles(): Promise<Article[]> | Article[] {
+  async getArticles(): Promise<Article[]> {
     const service = this.getService();
     if (!service) {
       return [];
     }
 
     try {
-      return service.getArticles();
+      return await service.getArticles();
     } catch (e) {
       this.logger.error(`Get articles error.`, e);
       return [];

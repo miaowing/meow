@@ -33,6 +33,7 @@
     "hbs": "^4.0.3",
     "memory-cache": "^0.2.0",
     "moment": "^2.24.0",
+    "querystring": "^0.2.0",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.3",
     "rxjs": "^6.3.3",

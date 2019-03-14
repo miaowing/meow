@@ -19,7 +19,7 @@ async function bootstrap() {
   app.useStaticAssets(join(__dirname, 'public'), { prefix: '/assets', maxAge: 3600000 * 356 });
   app.setBaseViewsDir(join(__dirname, 'views'));
   app.setViewEngine('hbs');
-  await app.listen(3000);
+  await app.listen(4000);
 }
 
 bootstrap();

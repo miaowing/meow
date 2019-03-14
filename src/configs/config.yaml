@@ -1,6 +1,5 @@
 github:
-  # github token
-  token:
+  token: 272f4eaea395d081d6f58a15fa284dfbdebd48f0
   projects:
     count: 9
     # PUSHED_AT STARGAZERS NAME CREATED_AT UPDATED_AT
@@ -9,35 +8,50 @@ github:
       - COLLABORATOR
       - ORGANIZATION_MEMBER
       - OWNER
-    # exclude project
     excludes:
-    # - test
-    # - test
+      - yedaodao/angular-modal
+      - i5sing/5singAPI
+      - miaowing/vue-modal
+      - starlight36/react-aquarium
 
 extras:
-  # available for hire
   hire: false
-  # icp number
-  icp: 辽ICP备xxxxxxxx号
+  icp: 辽ICP备16013530号
 
 topics:
   - name: React
     webUrl: https://github.com/topics/react
     imageUrl: https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/react/react.png
 
+  - name: Node.js
+    webUrl: https://github.com/topics/react
+    imageUrl: https://raw.githubusercontent.com/github/explore/fd96fceccf8c42c99cbe29cf0f8dcc4736fcb85a/topics/nodejs/nodejs.png
+
+  - name: TypeScript
+    webUrl: https://github.com/topics/graphql
+    imageUrl: https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/typescript/typescript.png
+
+  - name: OpenStack
+    webUrl: https://github.com/openstack
+    imageUrl: https://avatars0.githubusercontent.com/u/324574?s=200&v=4
+
+  - name: kubernetes
+    webUrl: https://github.com/topics/docker
+    imageUrl: https://raw.githubusercontent.com/github/explore/46beb428f6ba77f5de33ba7633402379aba5d92d/topics/kubernetes/kubernetes.png
+
+  - name: GraphQL
+    webUrl: https://github.com/topics/graphql
+    imageUrl: https://raw.githubusercontent.com/github/explore/5c058a388828bb5fde0bcafd4bc867b5bb3f26f3/topics/graphql/graphql.png
+
 articles:
-  # now only support ghost
   engine: ghost
-  # the domain of your ghost blog
-  url: https://example.com
-  # ghost key
-  key:
+  url: https://blog.zf.ink
+  key: 532e0e67a0f56e6be24286e068
 
 comments:
-  # now only support valine
   engine: valine
-  appId:
-  appKey:
+  appId: FziuAuj4v5kiRRqt1qkdE8Ro-gzGzoHsz
+  appKey: 0vaI5dTjlLOfVpBYDlIJGjaA
   extras:
     placeholder: 快来留下您的评论吧
     notify: true

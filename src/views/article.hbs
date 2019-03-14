@@ -1,0 +1,45 @@
+<!doctype html>
+<html class="height-full">
+{{> header}}
+<body class="bg-white height-full">
+<div class="d-md-flex border-md-bottom height-full">
+    {{> user}}
+    <div class="col-md-7 col-lg-8 col-xl-9 px-4 py-6 px-lg-7 border-top border-md-top-0 bg-gray-light scroll">
+        <div class="mx-auto" style="max-width: 900px;">
+            <div class="f4 mb-6">
+                <div class="f4">
+                    <p class="f5">
+                        <a href="/" class="d-flex flex-items-center">
+                            <svg height="16" class="octicon octicon-chevron-left mr-2 v-align-middle" fill="#24292e"
+                                 aria-label="Home" viewBox="0 0 8 16" version="1.1" width="8" role="img">
+                                <path fill-rule="evenodd" d="M6 3l1.5 1.5L3.75 8l3.75 3.5L6 13 1 8l5-5z"></path>
+                            </svg>
+                            Home
+                        </a>
+                    </p>
+                    <h1 class="f00-light lh-condensed">{{article.title}}</h1>
+                    <p class="text-gray mb-5">Published {{dateFmt article.publishedAt}}</p>
+                    <div class="article">{{{article.html}}}</div>
+                </div>
+            </div>
+            <div id="comments"></div>
+        </div>
+    </div>
+</div>
+{{#if valine}}
+    <script src="/assets/av.min.js"></script>
+    <script src='/assets/valine.min.js'></script>
+    <script>
+        new window.Valine({
+            el: '#comments',
+            appId: '{{config.appId}}',
+            appKey: '{{config.appKey}}',
+            placeholder: '{{config.extras.placeholder}}',
+            notify: {{config.extras.notify}},
+            verify: {{config.extras.verify}}
+        });
+    </script>
+{{/if}}
+</body>
+</html>
+

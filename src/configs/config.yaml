@@ -1,0 +1,69 @@
+github:
+  # github token
+  token:
+  projects:
+    count: 9
+    # PUSHED_AT STARGAZERS NAME CREATED_AT UPDATED_AT
+    sortBy: STARGAZERS
+    affiliations:
+      - COLLABORATOR
+      - ORGANIZATION_MEMBER
+      - OWNER
+    # exclude project
+    excludes:
+    # - test
+    # - test
+
+extras:
+  # available for hire
+  hire: false
+  # icp number
+  icp: 辽ICP备xxxxxxxx号
+
+topics:
+  - name: React
+    webUrl: https://github.com/topics/react
+    imageUrl: https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/react/react.png
+
+articles:
+  # now only support ghost
+  engine: ghost
+  # the domain of your ghost blog
+  url: https://example.com
+  # ghost key
+  key:
+
+comments:
+  # now only support valine
+  engine: valine
+  appId:
+  appKey:
+  extras:
+    placeholder: 快来留下您的评论吧
+    notify: true
+    verify: false
+
+logger:
+  level: info
+  transports:
+    - transport: console
+      colorize: true
+      datePattern: YYYY-MM-DD h:mm:ss
+      label: meow
+    - transport: file
+      name: info
+      json: false
+      filename: ../logs/all.log
+      datePattern: YYYY-MM-DD h:mm:ss
+      label: meow
+      maxsize: 209715200
+      maxFiles: 1
+    - transport: file
+      name: error
+      level: error
+      json: false
+      filename: ../logs/error.log
+      datePattern: YYYY-MM-DD h:mm:ss
+      label: meow
+      maxsize: 209715200
+      maxFiles: 1

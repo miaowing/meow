@@ -1,0 +1,13 @@
+<h2>My Interests</h2>
+<p class="f4 mb-4 text-gray">Topics that I want to learn more about.</p>
+<div class="d-flex flex-wrap gutter-condensed mb-4">
+    {{#each topics}}
+        <div class="col-6 col-md-12 col-lg-6 col-xl-4 mb-3">
+            <a href="{{webUrl}}" target="_blank"
+               class="github-component position-relative hover-grow height-full no-underline d-flex flex-column flex-justify-center text-center border border-gray-light rounded-1 bg-white p-5">
+                <img src="{{imageUrl}}" width="64" height="64" class="mx-auto rounded-1 mb-3" alt="{{name}}">
+                <p class="f3 lh-condensed text-center link-gray-dark mb-0 mt-1">{{name}}</p>
+            </a>
+        </div>
+    {{/each}}
+</div>

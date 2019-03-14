@@ -1,7 +1,7 @@
 <head>
     <meta charset="utf-8">
-    <meta name="{{name}}" content="{{bio}}"/>
-    <title>{{name}}</title>
+    <meta name="{{#if article}}{{article.title}} - {{/if}}{{name}}" content="{{bio}}"/>
+    <title>{{#if article}}{{article.title}} - {{/if}}{{name}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="/assets/styles.css" rel="stylesheet" type="text/css">
 </head>

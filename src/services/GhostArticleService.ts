@@ -1,21 +1,17 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import axios from 'axios';
-import { InjectBoot, Boot } from '@nestcloud/boot';
+import { Bootstrap, BootValue } from '@nestcloud/boot';
 import { IArticleService } from './IArticleService';
 import { Article } from '../interfaces/Atricle';
 
 @Injectable()
+@Bootstrap()
 export class GhostArticleService implements IArticleService {
+  @BootValue('articles.url')
   private readonly url: string;
+  @BootValue('articles.key')
   private readonly key: string;
   private readonly ARTICLES_URL = '/ghost/api/v2/content/posts';
-
-  constructor(
-    @InjectBoot() private readonly boot: Boot,
-  ) {
-    this.url = this.boot.get('articles.url');
-    this.key = this.boot.get('articles.key');
-  }
 
   async getArticle(articleId: string): Promise<Article> {
     const response = await axios.get(`${ this.url }${ this.ARTICLES_URL }/${ articleId }`, {

@@ -20,6 +20,9 @@ Put this configuration in /root/meow/config.yaml.
 github:
   # github token
   token: 
+  organizations:
+    excludes:
+    # - test
   projects:
     count: 9
     # PUSHED_AT STARGAZERS NAME CREATED_AT UPDATED_AT

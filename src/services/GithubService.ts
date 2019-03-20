@@ -1,17 +1,29 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { Boot, InjectBoot } from '@nestcloud/boot';
+import { Bootstrap, BootValue } from '@nestcloud/boot';
 import { get, put } from 'memory-cache';
 import { GithubClient } from '../clients';
 import { Viewer } from '../interfaces/Github';
 
 @Injectable()
+@Bootstrap()
 export class GithubService {
   private readonly GITHUB_DATA_CACHE = 'GITHUB_DATA_CACHE';
   private readonly CACHE_TIMEOUT = 3600000;
+  @BootValue('github.token')
+  private readonly token: string;
+  @BootValue('github.projects.count', 9)
+  private readonly repoCount: number;
+  @BootValue('github.projects.sortBy', 'STARGAZERS')
+  private readonly sortBy: string;
+  @BootValue('github.projects.affiliations', ['OWNER'])
+  private readonly affiliations: string[];
+  @BootValue('github.projects.excludes', [])
+  private readonly excludes: string[];
+  @BootValue('github.organizations.excludes', [])
+  private readonly orgExcludes: string[];
 
   constructor(
     private readonly github: GithubClient,
-    @InjectBoot() private readonly boot: Boot,
   ) {
   }
 
@@ -27,12 +39,8 @@ export class GithubService {
   }
 
   async fetch(): Promise<Viewer> {
-    const token = this.boot.get('github.token');
-    const repoCount = this.boot.get('github.projects.count', 9);
-    const sortBy = this.boot.get('github.projects.sortBy', 'STARGAZERS');
-    const affiliations = this.boot.get('github.projects.affiliations', ['OWNER']).toString();
-    const excludes = this.boot.get('github.projects.excludes', []);
-    const totalCount = repoCount + excludes.length;
+    const affiliations = this.affiliations.toString();
+    const totalCount = this.repoCount + this.excludes.length;
     const graphql = `
       query {
         viewer {
@@ -63,7 +71,7 @@ export class GithubService {
               endCursor
             }
           }
-          repositories(first: ${ totalCount }, orderBy: {field: ${ sortBy }, direction: DESC}, affiliations: [${ affiliations }]) {
+          repositories(first: ${ totalCount }, orderBy: {field: ${ this.sortBy }, direction: DESC}, affiliations: [${ affiliations }]) {
             totalCount
             nodes {
               id
@@ -88,7 +96,7 @@ export class GithubService {
       }
     `;
 
-    const result = await this.github.query(`token ${ token }`, graphql);
+    const result = await this.github.query(`token ${ this.token }`, graphql);
     if (result.errors) {
       throw new BadRequestException(JSON.stringify(result.errors));
     }
@@ -99,10 +107,15 @@ export class GithubService {
       }
     });
 
-    if (excludes.length) {
+    if (this.excludes.length) {
       result.data.viewer.repositories.nodes = result.data.viewer.repositories.nodes
-        .filter(repo => !excludes.includes(repo.nameWithOwner))
+        .filter(repo => !this.excludes.includes(repo.nameWithOwner))
         .filter((repo, index) => index < 9);
+    }
+
+    if (this.orgExcludes.length) {
+      result.data.viewer.organizations.nodes = result.data.viewer.organizations.nodes
+        .filter(org => !this.orgExcludes.includes(org.name));
     }
     return result.data.viewer;
   }

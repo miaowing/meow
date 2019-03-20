@@ -1,12 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { join, resolve } from 'path';
+import { join } from 'path';
 import * as moment from 'moment';
-import { Logger, NestLogger } from '@nestcloud/logger';
+import { NestLogger } from '@nestcloud/logger';
 import { registerPartials, registerHelper } from 'hbs';
-
-Logger.contextPath = resolve(__dirname, 'configs');
-Logger.filename = 'config.yaml';
+import { NestExpressApplication } from '@nestjs/platform-express';
 
 registerPartials(__dirname + '/views/partials');
 
@@ -15,7 +13,12 @@ registerHelper('dateFmt', date => {
 });
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { logger: new NestLogger() });
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    logger: new NestLogger({
+      path: __dirname,
+      filename: 'config.yaml',
+    }),
+  });
   app.useStaticAssets(join(__dirname, 'public'), { prefix: '/assets', maxAge: 3600000 * 356 });
   app.setBaseViewsDir(join(__dirname, 'views'));
   app.setViewEngine('hbs');

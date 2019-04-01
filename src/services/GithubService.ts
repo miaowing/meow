@@ -1,11 +1,10 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { Bootstrap, BootValue } from '@nestcloud/boot';
+import { BootValue } from '@nestcloud/boot';
 import { get, put } from 'memory-cache';
 import { GithubClient } from '../clients';
 import { Viewer } from '../interfaces/Github';
 
 @Injectable()
-@Bootstrap()
 export class GithubService {
   private readonly GITHUB_DATA_CACHE = 'GITHUB_DATA_CACHE';
   private readonly CACHE_TIMEOUT = 3600000;

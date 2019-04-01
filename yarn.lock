@@ -16,64 +16,68 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@nestcloud/boot@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@nestcloud/boot/-/boot-0.1.4.tgz#e16a4a0dfe8daf4adfc7bde07c1cd167967637e0"
+"@nestcloud/boot@^0.2.1", "@nestcloud/boot@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@nestcloud/boot/-/boot-0.2.3.tgz#14dc252341df4646425681c1cfc6338160be99b7"
   dependencies:
+    handlebars "^4.1.1"
     lodash "^4.17.11"
     reflect-metadata "^0.1.12"
     yamljs "^0.3.0"
 
-"@nestcloud/common@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@nestcloud/common/-/common-0.1.3.tgz#c60e6319105963a730e29c9807a7b2b782d41856"
+"@nestcloud/common@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@nestcloud/common/-/common-0.2.3.tgz#59c46c11d21886b1151eb9e1d9a7bd53affd440b"
   dependencies:
     lodash "^4.17.11"
 
-"@nestcloud/consul-config@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@nestcloud/consul-config/-/consul-config-0.1.4.tgz#807ffe07ad99ed0b720f094647e55b0f8b368fd7"
+"@nestcloud/consul-config@^0.2.1":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@nestcloud/consul-config/-/consul-config-0.2.3.tgz#b2cd62be60e5ff9945a056e95ec62612b5a76bae"
   dependencies:
     lodash "^4.17.11"
-    object-map-transformer "^0.0.1"
     reflect-metadata "^0.1.12"
     yamljs "^0.3.0"
   optionalDependencies:
-    "@nestcloud/boot" "^0.1.4"
+    "@nestcloud/boot" "^0.2.1"
 
-"@nestcloud/consul-loadbalance@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@nestcloud/consul-loadbalance/-/consul-loadbalance-0.1.4.tgz#bf5c5efbc2a980ba015842201256c393c0fbf9c0"
+"@nestcloud/consul-loadbalance@^0.2.1":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@nestcloud/consul-loadbalance/-/consul-loadbalance-0.2.3.tgz#747cf33d9a1ea5275ea80c262b55154e4de0df38"
   dependencies:
     axios "^0.18.0"
     lodash "^4.17.11"
     random-js "^2.0.0-rc2"
   optionalDependencies:
-    "@nestcloud/boot" "^0.1.4"
-    "@nestcloud/consul-config" "^0.1.4"
+    "@nestcloud/boot" "^0.2.1"
+    "@nestcloud/consul-config" "^0.2.1"
 
-"@nestcloud/feign@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@nestcloud/feign/-/feign-0.1.2.tgz#a1e341b2bf921b09b64da89c31dd767427eab819"
+"@nestcloud/core@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@nestcloud/core/-/core-0.2.3.tgz#ca1b5126421691d33aac672a7215e5baa3d4b704"
+
+"@nestcloud/feign@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@nestcloud/feign/-/feign-0.2.3.tgz#334d879be0d6d91980c6df41c40b6a4731e2f2f0"
   dependencies:
-    brakes "^2.6.0"
+    brakes "^2.7.0"
     lodash "^4.17.11"
     reflect-metadata "^0.1.12"
     uri-params "^0.1.3"
   optionalDependencies:
-    "@nestcloud/consul-loadbalance" "^0.1.4"
+    "@nestcloud/boot" "^0.2.1"
+    "@nestcloud/consul-config" "^0.2.1"
+    "@nestcloud/consul-loadbalance" "^0.2.1"
 
-"@nestcloud/logger@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@nestcloud/logger/-/logger-0.2.0.tgz#404231b526fd3c7b8f4421c93da5a9f1335d7a95"
+"@nestcloud/logger@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@nestcloud/logger/-/logger-0.2.3.tgz#2d1d8bf2b49f386344e8d8abe2b040bceedfc908"
   dependencies:
     mkdirp "^0.5.1"
     moment "^2.24.0"
     reflect-metadata "^0.1.12"
     winston "^2.4.2"
     winston-daily-rotate-file "^3.8.0"
-  optionalDependencies:
-    "@nestcloud/boot" "^0.1.4"
 
 "@nestjs/common@^6.0.1":
   version "6.0.1"
@@ -690,9 +694,9 @@ braces@^2.3.1, braces@^2.3.2:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
-brakes@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/brakes/-/brakes-2.6.0.tgz#79fb0a0385d07d8f83f9c96ce8dc60ba59e00856"
+brakes@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/brakes/-/brakes-2.7.0.tgz#103c794bf3a21ac1098f84bf667d1466e002a4ff"
   dependencies:
     bluebird "^3.4.6"
 
@@ -1810,6 +1814,16 @@ handlebars@^4.0.3, handlebars@^4.1.0:
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.1.0.tgz#0d6a6f34ff1f63cecec8423aa4169827bf787c3a"
   dependencies:
     async "^2.5.0"
+    optimist "^0.6.1"
+    source-map "^0.6.1"
+  optionalDependencies:
+    uglify-js "^3.1.4"
+
+handlebars@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.1.1.tgz#6e4e41c18ebe7719ae4d38e5aca3d32fa3dd23d3"
+  dependencies:
+    neo-async "^2.6.0"
     optimist "^0.6.1"
     source-map "^0.6.1"
   optionalDependencies:
@@ -3113,6 +3127,10 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
+neo-async@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.0.tgz#b9d15e4d71c6762908654b5183ed38b753340835"
+
 next-tick@1, next-tick@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
@@ -3258,12 +3276,6 @@ object-hash@1.3.1, object-hash@^1.3.0:
 object-keys@^1.0.12:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-1.1.0.tgz#11bd22348dd2e096a045ab06f6c85bcc340fa032"
-
-object-map-transformer@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/object-map-transformer/-/object-map-transformer-0.0.1.tgz#df9de97db06c2f93b007ce9328e3e9bf8c3bd006"
-  dependencies:
-    lodash "^4.17.4"
 
 object-visit@^1.0.0:
   version "1.0.1"

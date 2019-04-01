@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Bootstrap, BootValue, InjectBoot, Boot } from '@nestcloud/boot';
+import { BootValue, InjectBoot, Boot } from '@nestcloud/boot';
 import { IArticleService } from './IArticleService';
 import { Article } from '../interfaces/Atricle';
 import { GhostArticleService } from './GhostArticleService';
@@ -8,7 +8,6 @@ import { InjectLogger } from '@nestcloud/logger';
 import { LoggerInstance } from 'winston';
 
 @Injectable()
-@Bootstrap()
 export class ArticleService implements IArticleService {
   @BootValue('articles.engine', 'ghost')
   private readonly blogEngine: string;

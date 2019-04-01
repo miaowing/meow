@@ -1,3 +1,6 @@
+service:
+  port: 3000
+
 github:
   # github token
   token:

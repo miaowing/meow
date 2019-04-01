@@ -1,11 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import axios from 'axios';
-import { Bootstrap, BootValue } from '@nestcloud/boot';
+import { BootValue } from '@nestcloud/boot';
 import { IArticleService } from './IArticleService';
 import { Article } from '../interfaces/Atricle';
 
 @Injectable()
-@Bootstrap()
 export class GhostArticleService implements IArticleService {
   @BootValue('articles.url')
   private readonly url: string;

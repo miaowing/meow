@@ -31,7 +31,7 @@
     "@nestjs/websockets": "^6.0.1",
     "@primer/css": "^12.2.0",
     "@types/memory-cache": "^0.2.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "hbs": "^4.0.3",
     "memory-cache": "^0.2.0",
     "moment": "^2.24.0",
